@@ -22,6 +22,9 @@ public sealed class FirstPersonController : MonoBehaviour
     private float verticalVelocity;
     private bool cursorCaptured;
 
+    public bool AcceptsGameplayInput => isActiveAndEnabled && Application.isFocused &&
+        cursorCaptured && Cursor.lockState == CursorLockMode.Locked;
+
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
