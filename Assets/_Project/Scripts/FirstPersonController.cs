@@ -22,8 +22,39 @@ public sealed class FirstPersonController : MonoBehaviour
     private float verticalVelocity;
     private bool cursorCaptured;
 
-    public bool AcceptsGameplayInput => isActiveAndEnabled && Application.isFocused &&
+    private Vector3 savedCameraPosition;
+    private Quaternion savedCameraRotation;
+    private int resumeAfterFrame;
+
+    public bool IsControlLocked { get; private set; }
+    public bool AcceptsGameplayInput => !IsControlLocked && Time.frameCount > resumeAfterFrame &&
+        isActiveAndEnabled && Application.isFocused &&
         cursorCaptured && Cursor.lockState == CursorLockMode.Locked;
+
+    public void BeginPuzzleView(Vector3 position, Quaternion rotation)
+    {
+        if (IsControlLocked)
+            return;
+
+        savedCameraPosition = playerCamera.localPosition;
+        savedCameraRotation = playerCamera.localRotation;
+        IsControlLocked = true;
+        verticalVelocity = 0f;
+        SetCursorCaptured(false);
+        playerCamera.SetPositionAndRotation(position, rotation);
+    }
+
+    public void EndPuzzleView()
+    {
+        if (!IsControlLocked)
+            return;
+
+        playerCamera.SetLocalPositionAndRotation(savedCameraPosition, savedCameraRotation);
+        pitch = Mathf.DeltaAngle(0f, savedCameraRotation.eulerAngles.x);
+        IsControlLocked = false;
+        resumeAfterFrame = Time.frameCount + 1;
+        SetCursorCaptured(Application.isFocused);
+    }
 
     private void Awake()
     {
@@ -72,6 +103,9 @@ public sealed class FirstPersonController : MonoBehaviour
 
     private void Update()
     {
+        if (IsControlLocked || Time.frameCount <= resumeAfterFrame)
+            return;
+
         bool acceptsInput = UpdateCursorCapture();
         Vector3 horizontalVelocity = Vector3.zero;
 
