@@ -3,6 +3,7 @@ using UnityEngine;
 [DisallowMultipleComponent]
 public sealed class GreyboxExitTrigger : MonoBehaviour
 {
+    [SerializeField] private GameState gameState;
     [SerializeField] private CharacterController player;
     [SerializeField] private GameObject message;
 
@@ -16,7 +17,7 @@ public sealed class GreyboxExitTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (reached || other != player)
+        if (reached || other != player || !gameState.HasKeycard || !gameState.HasBackpack)
             return;
 
         reached = true;

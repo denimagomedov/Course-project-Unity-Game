@@ -3,6 +3,9 @@ using UnityEngine;
 [DisallowMultipleComponent]
 public sealed class GameState : MonoBehaviour
 {
+    public bool HasBackpack { get; private set; }
+    public event System.Action BackpackCollected;
+
     public bool PuzzleSolved { get; private set; }
     public bool HasEnteredClassroom { get; private set; }
     public event System.Action PuzzleCompleted;
@@ -13,6 +16,7 @@ public sealed class GameState : MonoBehaviour
     private void Awake()
     {
         HasKeycard = false;
+        HasBackpack = false;
         PuzzleSolved = false;
         HasEnteredClassroom = false;
         CurrentObjective = "Найдите ключ-карту";
@@ -20,7 +24,7 @@ public sealed class GameState : MonoBehaviour
 
     public bool TryEnterClassroom()
     {
-        if (!HasKeycard || HasEnteredClassroom)
+        if (!HasKeycard || HasEnteredClassroom || HasBackpack)
             return false;
 
         HasEnteredClassroom = true;
@@ -38,13 +42,25 @@ public sealed class GameState : MonoBehaviour
         return true;
     }
 
+    public bool TryCollectBackpack()
+    {
+        if (!PuzzleSolved || HasBackpack)
+            return false;
+
+        HasBackpack = true;
+        CurrentObjective = "Покиньте университет";
+        BackpackCollected?.Invoke();
+        return true;
+    }
+
     public bool TryCollectKeycard()
     {
         if (HasKeycard)
             return false;
 
         HasKeycard = true;
-        CurrentObjective = "Доберитесь до кабинета";
+        if (!HasBackpack && !HasEnteredClassroom)
+            CurrentObjective = "Доберитесь до кабинета";
         return true;
     }
 }
