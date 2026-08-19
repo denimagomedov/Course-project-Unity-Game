@@ -25,7 +25,9 @@ public sealed class FirstPersonController : MonoBehaviour
     private Vector3 savedCameraPosition;
     private Quaternion savedCameraRotation;
     private int resumeAfterFrame;
+    private bool puzzleViewActive;
 
+    public bool IsDefeated { get; private set; }
     public bool IsControlLocked { get; private set; }
     public bool AcceptsGameplayInput => !IsControlLocked && Time.frameCount > resumeAfterFrame &&
         isActiveAndEnabled && Application.isFocused &&
@@ -38,6 +40,7 @@ public sealed class FirstPersonController : MonoBehaviour
 
         savedCameraPosition = playerCamera.localPosition;
         savedCameraRotation = playerCamera.localRotation;
+        puzzleViewActive = true;
         IsControlLocked = true;
         verticalVelocity = 0f;
         SetCursorCaptured(false);
@@ -46,14 +49,23 @@ public sealed class FirstPersonController : MonoBehaviour
 
     public void EndPuzzleView()
     {
-        if (!IsControlLocked)
+        if (!puzzleViewActive)
             return;
 
+        puzzleViewActive = false;
         playerCamera.SetLocalPositionAndRotation(savedCameraPosition, savedCameraRotation);
         pitch = Mathf.DeltaAngle(0f, savedCameraRotation.eulerAngles.x);
-        IsControlLocked = false;
+        IsControlLocked = IsDefeated;
         resumeAfterFrame = Time.frameCount + 1;
         SetCursorCaptured(Application.isFocused);
+    }
+
+    public void LockForDefeat()
+    {
+        IsDefeated = true;
+        IsControlLocked = true;
+        verticalVelocity = 0f;
+        SetCursorCaptured(false);
     }
 
     private void Awake()
@@ -156,6 +168,7 @@ public sealed class FirstPersonController : MonoBehaviour
 
     private void SetCursorCaptured(bool captured)
     {
+        captured = captured && !IsDefeated;
         cursorCaptured = captured;
         Cursor.lockState = captured ? CursorLockMode.Locked : CursorLockMode.None;
         Cursor.visible = !captured;
