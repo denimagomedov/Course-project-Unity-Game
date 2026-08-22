@@ -15,6 +15,7 @@ public sealed class ChaseEnemy : MonoBehaviour
     [SerializeField, Min(0.1f)] private float contactRadius = 0.35f;
     [SerializeField, Min(0.2f)] private float contactHeight = 1.8f;
     [SerializeField] private LayerMask contactObstacles = ~0;
+    [SerializeField] private SafeRoomDoor safeDoor;
 
     private NavMeshAgent agent;
     private CapsuleCollider contact;
@@ -24,6 +25,7 @@ public sealed class ChaseEnemy : MonoBehaviour
 
     public ChaseState State { get; private set; }
     public event Action PlayerCaught;
+    public event Action SafetyReached;
 
     public void Appear(CharacterController target, BoxCollider safety, Transform spawn)
     {
@@ -36,7 +38,7 @@ public sealed class ChaseEnemy : MonoBehaviour
         safeArea = safety;
         if (PlayerIsSafe())
         {
-            Stop();
+            ReachSafety();
             return;
         }
 
@@ -66,7 +68,7 @@ public sealed class ChaseEnemy : MonoBehaviour
 
         if (PlayerIsSafe())
         {
-            Stop();
+            ReachSafety();
             return;
         }
 
@@ -84,7 +86,9 @@ public sealed class ChaseEnemy : MonoBehaviour
         }
 
         if (agent.isOnNavMesh)
-            agent.SetDestination(player.transform.position);
+            agent.SetDestination(safeDoor != null
+                ? safeDoor.KeepEnemyOutside(player.transform.position, agent.radius)
+                : player.transform.position);
     }
 
     private void LateUpdate()
@@ -94,7 +98,7 @@ public sealed class ChaseEnemy : MonoBehaviour
 
         if (PlayerIsSafe())
         {
-            Stop();
+            ReachSafety();
             return;
         }
 
@@ -124,6 +128,19 @@ public sealed class ChaseEnemy : MonoBehaviour
                 player, player.transform.position, player.transform.rotation, out _, out _);
     }
 
+    public void ReachSafety()
+    {
+        if (State == ChaseState.Stop || State == ChaseState.PlayerCaught)
+            return;
+
+        bool appeared = State == ChaseState.Appear || State == ChaseState.Chase;
+        State = ChaseState.Stop;
+        DisableThreat();
+        if (!appeared)
+            gameObject.SetActive(false);
+        SafetyReached?.Invoke();
+    }
+
     public void Stop()
     {
         if (State != ChaseState.PlayerCaught)
@@ -133,12 +150,17 @@ public sealed class ChaseEnemy : MonoBehaviour
 
     private void DisableEnemy()
     {
+        DisableThreat();
+        gameObject.SetActive(false);
+    }
+
+    private void DisableThreat()
+    {
         if (agent == null)
             agent = GetComponent<NavMeshAgent>();
         if (contact == null)
             contact = GetComponent<CapsuleCollider>();
         agent.enabled = false;
         contact.enabled = false;
-        gameObject.SetActive(false);
     }
 }

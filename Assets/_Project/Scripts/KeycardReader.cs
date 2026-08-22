@@ -21,7 +21,7 @@ public sealed class KeycardReader : MonoBehaviour, IInteractable
     public string InteractionText => gameState != null && gameState.HasKeycard
         ? "Использовать карту" : "Проверить доступ";
     public bool CanInteract => isActiveAndEnabled && gameState != null && door != null &&
-        !IsProcessing && !door.IsOpen;
+        !IsProcessing && !door.IsOpen && !door.IsOpening;
 
     private void Awake()
     {

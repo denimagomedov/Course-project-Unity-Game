@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 public sealed class GameOverController : MonoBehaviour
 {
     [SerializeField] private FirstChaseTrigger firstChase;
+    [SerializeField] private SecondChaseTrigger secondChase;
     [SerializeField] private FirstPersonController player;
     [SerializeField] private PlayerInteraction interaction;
     [SerializeField] private MatrixPuzzle puzzle;
@@ -28,11 +29,15 @@ public sealed class GameOverController : MonoBehaviour
     private void OnEnable()
     {
         firstChase.PlayerCaught += Defeat;
+        if (secondChase != null)
+            secondChase.PlayerCaught += Defeat;
     }
 
     private void OnDisable()
     {
         firstChase.PlayerCaught -= Defeat;
+        if (secondChase != null)
+            secondChase.PlayerCaught -= Defeat;
     }
 
     public void Defeat()
