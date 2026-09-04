@@ -76,7 +76,8 @@ public sealed class SafeRoomDoor : MonoBehaviour
         if (entered && IsClosed && !closedAfterEntry)
         {
             closedAfterEntry = true;
-            enemy.Stop();
+            if (roomKind == RoomKind.Classroom)
+                enemy.Stop();
         }
     }
 

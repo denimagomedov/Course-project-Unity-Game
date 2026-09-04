@@ -1,5 +1,7 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 [DisallowMultipleComponent]
 public sealed class GameHUD : MonoBehaviour
@@ -16,9 +18,17 @@ public sealed class GameHUD : MonoBehaviour
         ClearMessage();
     }
 
-    private void Start()
+    private IEnumerator Start()
     {
         objectiveText.text = gameState.CurrentObjective;
+        yield return null;
+
+        Canvas.ForceUpdateCanvases();
+        LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)transform);
+        foreach (Graphic graphic in GetComponentsInChildren<Graphic>())
+            graphic.SetAllDirty();
+        objectiveText.ForceMeshUpdate();
+        Canvas.ForceUpdateCanvases();
     }
 
     private void LateUpdate()

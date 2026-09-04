@@ -11,11 +11,13 @@ public sealed class GameState : MonoBehaviour
     public event System.Action PuzzleCompleted;
 
     public bool HasKeycard { get; private set; }
+    public bool HasLeftLibrary { get; private set; }
     public string CurrentObjective { get; private set; }
 
     private void Awake()
     {
         HasKeycard = false;
+        HasLeftLibrary = false;
         HasBackpack = false;
         PuzzleSolved = false;
         HasEnteredClassroom = false;
@@ -60,7 +62,17 @@ public sealed class GameState : MonoBehaviour
 
         HasKeycard = true;
         if (!HasBackpack && !HasEnteredClassroom)
-            CurrentObjective = "Доберитесь до кабинета";
+            CurrentObjective = "Покиньте библиотеку";
+        return true;
+    }
+
+    public bool TryLeaveLibrary()
+    {
+        if (!HasKeycard || HasLeftLibrary || HasEnteredClassroom || HasBackpack)
+            return false;
+
+        HasLeftLibrary = true;
+        CurrentObjective = "Доберитесь до кабинета";
         return true;
     }
 }

@@ -6,6 +6,7 @@ public sealed class LibraryDoor : MonoBehaviour
     [SerializeField] private GameObject doorLeaf;
     [SerializeField] private Transform hinge;
     [SerializeField] private CharacterController player;
+    [SerializeField] private GameState gameState;
     [SerializeField, Min(0.1f)] private float openingDuration = 0.5f;
 
     private BoxCollider leafCollider;
@@ -31,6 +32,15 @@ public sealed class LibraryDoor : MonoBehaviour
 
     private void Update()
     {
+        if (IsOpen && gameState != null && gameState.HasKeycard && !gameState.HasLeftLibrary)
+        {
+            Vector3 position = hinge.parent.InverseTransformPoint(player.transform.position) -
+                hinge.localPosition;
+            float width = leafCollider.size.z * doorLeaf.transform.localScale.z;
+            if (position.x > 0f && position.z >= 0f && position.z <= width)
+                gameState.TryLeaveLibrary();
+        }
+
         if (!IsOpening)
             return;
 
