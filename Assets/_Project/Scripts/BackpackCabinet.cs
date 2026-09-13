@@ -5,6 +5,8 @@ public sealed class BackpackCabinet : MonoBehaviour
 {
     [SerializeField] private GameState gameState;
     [SerializeField] private GameObject frontPanel;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip openingClip;
 
     public bool IsOpen { get; private set; }
 
@@ -43,5 +45,6 @@ public sealed class BackpackCabinet : MonoBehaviour
 
         IsOpen = true;
         frontPanel.SetActive(false);
+        audioSource.PlayOneShot(openingClip);
     }
 }

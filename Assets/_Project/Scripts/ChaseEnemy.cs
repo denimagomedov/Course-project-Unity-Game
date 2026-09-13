@@ -16,6 +16,7 @@ public sealed class ChaseEnemy : MonoBehaviour
     [SerializeField, Min(0.2f)] private float contactHeight = 1.8f;
     [SerializeField] private LayerMask contactObstacles = ~0;
     [SerializeField] private SafeRoomDoor safeDoor;
+    [SerializeField] private AudioSource arrivalAudio;
 
     private NavMeshAgent agent;
     private CapsuleCollider contact;
@@ -24,6 +25,7 @@ public sealed class ChaseEnemy : MonoBehaviour
     private float chaseStartsAt;
 
     public ChaseState State { get; private set; }
+    public bool HasAppeared { get; private set; }
     public event Action PlayerCaught;
     public event Action SafetyReached;
 
@@ -58,7 +60,10 @@ public sealed class ChaseEnemy : MonoBehaviour
         agent.enabled = false;
         gameObject.SetActive(true);
         State = ChaseState.Appear;
+        HasAppeared = true;
         chaseStartsAt = Time.time + movementDelay;
+        if (arrivalAudio != null)
+            arrivalAudio.Play();
     }
 
     private void Update()
@@ -156,6 +161,8 @@ public sealed class ChaseEnemy : MonoBehaviour
 
     private void DisableThreat()
     {
+        if (arrivalAudio != null)
+            arrivalAudio.Stop();
         if (agent == null)
             agent = GetComponent<NavMeshAgent>();
         if (contact == null)

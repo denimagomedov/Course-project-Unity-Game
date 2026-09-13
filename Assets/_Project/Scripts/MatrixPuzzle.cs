@@ -18,6 +18,7 @@ public sealed class MatrixPuzzle : MonoBehaviour, IInteractable
     [SerializeField] private CanvasGroup controls;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip successClip;
+    [SerializeField] private AudioClip deniedClip;
 
     private readonly int[] expected = { 11, 5, 8, 7, 4, 1, 7, 1, 4 };
 
@@ -84,7 +85,9 @@ public sealed class MatrixPuzzle : MonoBehaviour, IInteractable
                     CultureInfo.InvariantCulture, out int value) || value != expected[i])
             {
                 feedback.text = "Решение неверно";
-                feedback.color = new Color(1f, 0.65f, 0.5f);
+                feedback.color = new Color(0.65f, 0.12f, 0.08f);
+                audioSource.Stop();
+                audioSource.PlayOneShot(deniedClip);
                 return;
             }
         }
@@ -93,7 +96,8 @@ public sealed class MatrixPuzzle : MonoBehaviour, IInteractable
             return;
 
         feedback.text = "Решение принято";
-        feedback.color = new Color(0.55f, 1f, 0.65f);
+        feedback.color = new Color(0.08f, 0.35f, 0.15f);
+        audioSource.Stop();
         audioSource.PlayOneShot(successClip);
         EventSystem.current?.SetSelectedGameObject(null);
         UpdateControls();
@@ -101,6 +105,9 @@ public sealed class MatrixPuzzle : MonoBehaviour, IInteractable
 
     private void UpdateControls()
     {
+        checkButton.gameObject.SetActive(IsSolving);
+        leaveButton.gameObject.SetActive(IsSolving);
+        feedback.gameObject.SetActive(IsSolving);
         controls.interactable = IsSolving;
         controls.blocksRaycasts = IsSolving;
         foreach (TMP_InputField field in fields)

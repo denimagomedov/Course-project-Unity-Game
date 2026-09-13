@@ -1,0 +1,322 @@
+[
+  {
+    "asset": "Footstep1.wav",
+    "source": {
+      "selected_file": "PlayerFootsteps_RalphWhitehead_Approved_HQPreview_CC0.mp3",
+      "source_archive": "public preview",
+      "original_path": "HQ preview MP3; original WAV requires login",
+      "source_page": "https://freesound.org/people/ralph.whitehead/sounds/565711/",
+      "license": "CC0",
+      "sha256": "7ba86d078a137a19e39da93503b3ba71b6b78b14fa3b9a503c4c7106be0c101d"
+    },
+    "start": 2.895,
+    "duration": 0.3,
+    "peak": 0.18,
+    "rms": 0.012869101257843624,
+    "loop": false
+  },
+  {
+    "asset": "Footstep2.wav",
+    "source": {
+      "selected_file": "PlayerFootsteps_RalphWhitehead_Approved_HQPreview_CC0.mp3",
+      "source_archive": "public preview",
+      "original_path": "HQ preview MP3; original WAV requires login",
+      "source_page": "https://freesound.org/people/ralph.whitehead/sounds/565711/",
+      "license": "CC0",
+      "sha256": "7ba86d078a137a19e39da93503b3ba71b6b78b14fa3b9a503c4c7106be0c101d"
+    },
+    "start": 3.355,
+    "duration": 0.3,
+    "peak": 0.18,
+    "rms": 0.01853894801096044,
+    "loop": false
+  },
+  {
+    "asset": "Footstep3.wav",
+    "source": {
+      "selected_file": "PlayerFootsteps_RalphWhitehead_Approved_HQPreview_CC0.mp3",
+      "source_archive": "public preview",
+      "original_path": "HQ preview MP3; original WAV requires login",
+      "source_page": "https://freesound.org/people/ralph.whitehead/sounds/565711/",
+      "license": "CC0",
+      "sha256": "7ba86d078a137a19e39da93503b3ba71b6b78b14fa3b9a503c4c7106be0c101d"
+    },
+    "start": 3.8449999999999998,
+    "duration": 0.3,
+    "peak": 0.18,
+    "rms": 0.017422800037883105,
+    "loop": false
+  },
+  {
+    "asset": "Footstep4.wav",
+    "source": {
+      "selected_file": "PlayerFootsteps_RalphWhitehead_Approved_HQPreview_CC0.mp3",
+      "source_archive": "public preview",
+      "original_path": "HQ preview MP3; original WAV requires login",
+      "source_page": "https://freesound.org/people/ralph.whitehead/sounds/565711/",
+      "license": "CC0",
+      "sha256": "7ba86d078a137a19e39da93503b3ba71b6b78b14fa3b9a503c4c7106be0c101d"
+    },
+    "start": 4.325,
+    "duration": 0.3,
+    "peak": 0.18,
+    "rms": 0.018424189180691167,
+    "loop": false
+  },
+  {
+    "asset": "Footstep5.wav",
+    "source": {
+      "selected_file": "PlayerFootsteps_RalphWhitehead_Approved_HQPreview_CC0.mp3",
+      "source_archive": "public preview",
+      "original_path": "HQ preview MP3; original WAV requires login",
+      "source_page": "https://freesound.org/people/ralph.whitehead/sounds/565711/",
+      "license": "CC0",
+      "sha256": "7ba86d078a137a19e39da93503b3ba71b6b78b14fa3b9a503c4c7106be0c101d"
+    },
+    "start": 5.295,
+    "duration": 0.3,
+    "peak": 0.18,
+    "rms": 0.019572029661865168,
+    "loop": false
+  },
+  {
+    "asset": "Footstep6.wav",
+    "source": {
+      "selected_file": "PlayerFootsteps_RalphWhitehead_Approved_HQPreview_CC0.mp3",
+      "source_archive": "public preview",
+      "original_path": "HQ preview MP3; original WAV requires login",
+      "source_page": "https://freesound.org/people/ralph.whitehead/sounds/565711/",
+      "license": "CC0",
+      "sha256": "7ba86d078a137a19e39da93503b3ba71b6b78b14fa3b9a503c4c7106be0c101d"
+    },
+    "start": 5.785,
+    "duration": 0.3,
+    "peak": 0.17999999999999997,
+    "rms": 0.016205188538536187,
+    "loop": false
+  },
+  {
+    "asset": "Footstep7.wav",
+    "source": {
+      "selected_file": "PlayerFootsteps_RalphWhitehead_Approved_HQPreview_CC0.mp3",
+      "source_archive": "public preview",
+      "original_path": "HQ preview MP3; original WAV requires login",
+      "source_page": "https://freesound.org/people/ralph.whitehead/sounds/565711/",
+      "license": "CC0",
+      "sha256": "7ba86d078a137a19e39da93503b3ba71b6b78b14fa3b9a503c4c7106be0c101d"
+    },
+    "start": 7.2250000000000005,
+    "duration": 0.3,
+    "peak": 0.18,
+    "rms": 0.021029167534643494,
+    "loop": false
+  },
+  {
+    "asset": "Footstep8.wav",
+    "source": {
+      "selected_file": "PlayerFootsteps_RalphWhitehead_Approved_HQPreview_CC0.mp3",
+      "source_archive": "public preview",
+      "original_path": "HQ preview MP3; original WAV requires login",
+      "source_page": "https://freesound.org/people/ralph.whitehead/sounds/565711/",
+      "license": "CC0",
+      "sha256": "7ba86d078a137a19e39da93503b3ba71b6b78b14fa3b9a503c4c7106be0c101d"
+    },
+    "start": 7.705,
+    "duration": 0.3,
+    "peak": 0.17999999999999997,
+    "rms": 0.017689667880314095,
+    "loop": false
+  },
+  {
+    "asset": "EnemyStep1.wav",
+    "source": {
+      "selected_file": "EnemyFootstep_Base01_Kenney_CC0.ogg",
+      "source_archive": "kenney_rpg-audio.zip",
+      "original_path": "Audio/footstep00.ogg",
+      "source_page": "https://kenney.nl/assets/rpg-audio",
+      "license": "CC0",
+      "sha256": "6fe61ef1fc3bcf0e253bf2eb64759db6cb69e2fe452f4d88cc597ecf78a3d601"
+    },
+    "start": 0,
+    "duration": 0.24885416666666665,
+    "peak": 0.45999999999999996,
+    "rms": 0.04445140452960112,
+    "loop": false
+  },
+  {
+    "asset": "EnemyStep2.wav",
+    "source": {
+      "selected_file": "EnemyFootstep_Base02_Kenney_CC0.ogg",
+      "source_archive": "kenney_rpg-audio.zip",
+      "original_path": "Audio/footstep01.ogg",
+      "source_page": "https://kenney.nl/assets/rpg-audio",
+      "license": "CC0",
+      "sha256": "313472dba31fd0c855376069fa368bb5a198c27251cc8398ef464578b7047a4c"
+    },
+    "start": 0,
+    "duration": 0.28247916666666667,
+    "peak": 0.46,
+    "rms": 0.04446345492695403,
+    "loop": false
+  },
+  {
+    "asset": "EnemyStep3.wav",
+    "source": {
+      "selected_file": "EnemyFootstep_Base03_Kenney_CC0.ogg",
+      "source_archive": "kenney_rpg-audio.zip",
+      "original_path": "Audio/footstep02.ogg",
+      "source_page": "https://kenney.nl/assets/rpg-audio",
+      "license": "CC0",
+      "sha256": "2d9575b7dead6e1217ca113991fc5229e9b6d998ea0726ebbb277e7398ab888f"
+    },
+    "start": 0,
+    "duration": 0.24214583333333334,
+    "peak": 0.4600000000000001,
+    "rms": 0.04266920046760995,
+    "loop": false
+  },
+  {
+    "asset": "EnemyStep4.wav",
+    "source": {
+      "selected_file": "EnemyFootstep_Base04_Kenney_CC0.ogg",
+      "source_archive": "kenney_rpg-audio.zip",
+      "original_path": "Audio/footstep03.ogg",
+      "source_page": "https://kenney.nl/assets/rpg-audio",
+      "license": "CC0",
+      "sha256": "a86756b9af9f370455ab47844239bb07fd1bee7a113068c91f0fcd9b72703fae"
+    },
+    "start": 0,
+    "duration": 0.2690208333333333,
+    "peak": 0.46,
+    "rms": 0.04172054214214417,
+    "loop": false
+  },
+  {
+    "asset": "ThreatArrival.wav",
+    "source": {
+      "selected_file": "EnemyArrival_Monster01_OGA_CC0.ogg",
+      "source_archive": "oga_80_cc0_creature.zip",
+      "original_path": "monster_01.ogg",
+      "source_page": "https://opengameart.org/content/80-cc0-creature-sfx",
+      "license": "CC0",
+      "sha256": "e8bb5c9d3d25172666c60ed302d354144b67e66170bdf039ec88f4b6b0cd879f"
+    },
+    "start": 0,
+    "duration": 0.9977708333333334,
+    "peak": 0.58,
+    "rms": 0.051270532998953004,
+    "loop": false
+  },
+  {
+    "asset": "BuildingAir.wav",
+    "source": {
+      "selected_file": "Ambience_Technical01_OGA_CC0.ogg",
+      "source_archive": "oga_sfx_loops.zip",
+      "original_path": "ambient_01.ogg",
+      "source_page": "https://opengameart.org/content/30-cc0-sfx-loops",
+      "license": "CC0",
+      "sha256": "4dca0e4890c0f7658b3e67c624416cdb8379f195ee68915cc076a0ed329b6c8f"
+    },
+    "start": 0,
+    "duration": 7.6339375,
+    "peak": 0.10470940434130863,
+    "rms": 0.025,
+    "loop": true
+  },
+  {
+    "asset": "DoorMovement.wav",
+    "source": {
+      "selected_file": "LibraryDoor_CreakyHinge_OGA_CC0.wav",
+      "source_archive": "direct download",
+      "original_path": "creaky_door_hinge.wav",
+      "source_page": "https://opengameart.org/content/creaky-door-hinge-spooky",
+      "license": "CC0",
+      "sha256": "8322ae01dd97c6cbb96fe3536a38ba736205b0bf3e6aa3c714236bf9fdb1db81"
+    },
+    "start": 0.14721088435374152,
+    "duration": 0.55,
+    "peak": 0.32,
+    "rms": 0.025489624889959924,
+    "loop": false
+  },
+  {
+    "asset": "DoorOpen.wav",
+    "source": {
+      "selected_file": "LibraryDoor_MetalOpen_OGA_CC0.ogg",
+      "source_archive": "oga_100_cc0_metal_wood.zip",
+      "original_path": "metal_open_01.ogg",
+      "source_page": "https://opengameart.org/content/100-cc0-metal-and-wood-sfx",
+      "license": "CC0",
+      "sha256": "b68844e779fd0d4234bd2511d91db1c72cbf10fa9bc0bbd49f3be6bdb311eb6d"
+    },
+    "start": 0,
+    "duration": 1.1495416666666667,
+    "peak": 0.38,
+    "rms": 0.01606298996920274,
+    "loop": false
+  },
+  {
+    "asset": "OrdinaryDoorOpen.wav",
+    "source": {
+      "selected_file": "OtherDoor_Open01_Kenney_CC0.ogg",
+      "source_archive": "kenney_rpg-audio.zip",
+      "original_path": "Audio/doorOpen_1.ogg",
+      "source_page": "https://kenney.nl/assets/rpg-audio",
+      "license": "CC0",
+      "sha256": "4ab93bab96522d8eb109ff96dc57cb6765deb02448fe14c10472084be5bb2a0b"
+    },
+    "start": 0,
+    "duration": 0.9189583333333333,
+    "peak": 0.36,
+    "rms": 0.03151298363077246,
+    "loop": false
+  },
+  {
+    "asset": "OrdinaryDoorClose.wav",
+    "source": {
+      "selected_file": "OtherDoor_Close02_Kenney_CC0.ogg",
+      "source_archive": "kenney_rpg-audio.zip",
+      "original_path": "Audio/doorClose_2.ogg",
+      "source_page": "https://kenney.nl/assets/rpg-audio",
+      "license": "CC0",
+      "sha256": "4aa4fe79836c53cd6d0cb0b22ddc33b9901429463ae1bb75131f072683f63f21"
+    },
+    "start": 0,
+    "duration": 0.6124791666666667,
+    "peak": 0.36,
+    "rms": 0.049821504602351664,
+    "loop": false
+  },
+  {
+    "asset": "BackpackPickup.wav",
+    "source": {
+      "selected_file": "Backpack_Cloth01_Kenney_CC0.ogg",
+      "source_archive": "kenney_rpg-audio.zip",
+      "original_path": "Audio/cloth1.ogg",
+      "source_page": "https://kenney.nl/assets/rpg-audio",
+      "license": "CC0",
+      "sha256": "ddb93a3671233f95da0e0b10367f082f7eb42fa6caaddcf776410aa8833c747d"
+    },
+    "start": 0,
+    "duration": 0.6610416666666666,
+    "peak": 0.36000000000000004,
+    "rms": 0.02650319431881992,
+    "loop": false
+  },
+  {
+    "asset": "TurnstileRelease.wav",
+    "source": {
+      "selected_file": "Turnstile_MetalLatch_Kenney_CC0.ogg",
+      "source_archive": "kenney_rpg-audio.zip",
+      "original_path": "Audio/metalLatch.ogg",
+      "source_page": "https://kenney.nl/assets/rpg-audio",
+      "license": "CC0",
+      "sha256": "ba9ba60b172b3ebc131a940f25793cd2e207aca7af73dc80d637277f060f1708"
+    },
+    "start": 0,
+    "duration": 0.2613333333333333,
+    "peak": 0.38,
+    "rms": 0.0322937189238832,
+    "loop": false
+  }
+]

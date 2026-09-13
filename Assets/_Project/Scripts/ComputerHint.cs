@@ -4,6 +4,8 @@ using UnityEngine;
 public sealed class ComputerHint : MonoBehaviour, IInteractable
 {
     [SerializeField] private GameObject screenContent;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip startupClip;
 
     public bool IsOn { get; private set; }
     public string InteractionText => "Включить компьютер";
@@ -22,5 +24,6 @@ public sealed class ComputerHint : MonoBehaviour, IInteractable
 
         IsOn = true;
         screenContent.SetActive(true);
+        audioSource.PlayOneShot(startupClip);
     }
 }

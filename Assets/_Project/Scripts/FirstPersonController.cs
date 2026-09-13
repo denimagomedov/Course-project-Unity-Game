@@ -28,7 +28,17 @@ public sealed class FirstPersonController : MonoBehaviour
     private bool puzzleViewActive;
 
     public bool IsDefeated { get; private set; }
-    public bool IsControlLocked { get; private set; }
+    private bool controlLocked;
+    private bool screenLocked;
+    public bool IsControlLocked { get => controlLocked || screenLocked; private set => controlLocked = value; }
+
+    public void SetScreenLocked(bool locked)
+    {
+        screenLocked = locked;
+        verticalVelocity = 0f;
+        resumeAfterFrame = Time.frameCount + 1;
+        SetCursorCaptured(!locked && Application.isFocused);
+    }
     public bool AcceptsGameplayInput => !IsControlLocked && Time.frameCount > resumeAfterFrame &&
         isActiveAndEnabled && Application.isFocused &&
         cursorCaptured && Cursor.lockState == CursorLockMode.Locked;
@@ -168,7 +178,7 @@ public sealed class FirstPersonController : MonoBehaviour
 
     private void SetCursorCaptured(bool captured)
     {
-        captured = captured && !IsDefeated;
+        captured = captured && !IsControlLocked;
         cursorCaptured = captured;
         Cursor.lockState = captured ? CursorLockMode.Locked : CursorLockMode.None;
         Cursor.visible = !captured;

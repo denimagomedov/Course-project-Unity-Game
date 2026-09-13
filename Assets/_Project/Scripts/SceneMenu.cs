@@ -39,12 +39,15 @@ public sealed class SceneMenu : MonoBehaviour
 
     public void Play()
     {
-        LoadScene("Assets/_Project/Scenes/Main.unity");
+        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "MainMenu")
+            FindAnyObjectByType<GameScreenController>().ShowIntro();
+        else
+            LoadScene("Main");
     }
 
     public void MainMenu()
     {
-        LoadScene("Assets/_Project/Scenes/MainMenu.unity");
+        LoadScene("MainMenu");
     }
 
     private void LoadScene(string scenePath)
@@ -54,14 +57,16 @@ public sealed class SceneMenu : MonoBehaviour
 
         IsLoading = true;
         controls.interactable = false;
-        SceneManager.LoadSceneAsync(scenePath, LoadSceneMode.Single);
+        var screens = FindAnyObjectByType<GameScreenController>();
+        if (scenePath == "Main") screens.LoadGame();
+        else screens.MainMenu();
     }
 
     public void Quit()
     {
-        if (IsLoading || !controls.interactable || Application.isEditor)
+        if (IsLoading || !controls.interactable)
             return;
 
-        Application.Quit();
+        FindAnyObjectByType<GameScreenController>().Quit();
     }
 }

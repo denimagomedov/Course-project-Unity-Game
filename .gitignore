@@ -9,6 +9,8 @@
 [Rr]ecordings/
 Docs/
 UserSettings/
+AudioSource/
+Tools/
 
 # Unity cache / generated
 sysinfo.txt

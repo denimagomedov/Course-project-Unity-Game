@@ -1,0 +1,32 @@
+{
+  "KeycardPickup": {
+    "seconds": 0.55,
+    "peak_dbfs": -7.5350141920419915,
+    "rms_dbfs": -22.634788958948036,
+    "seam_delta": 0.0
+  },
+  "ComputerStart": {
+    "seconds": 0.7,
+    "peak_dbfs": -7.5350141920419915,
+    "rms_dbfs": -19.217334079968364,
+    "seam_delta": 0.0
+  },
+  "MatrixDenied": {
+    "seconds": 0.34,
+    "peak_dbfs": -7.958800173440752,
+    "rms_dbfs": -17.79177787930668,
+    "seam_delta": 0.0
+  },
+  "CabinetOpen": {
+    "seconds": 0.5,
+    "peak_dbfs": -6.375175252488256,
+    "rms_dbfs": -23.27486509996676,
+    "seam_delta": 0.0
+  },
+  "Caught": {
+    "seconds": 0.43,
+    "peak_dbfs": -5.679933127304016,
+    "rms_dbfs": -22.38389817506119,
+    "seam_delta": 0.0
+  }
+}

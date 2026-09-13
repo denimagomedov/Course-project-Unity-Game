@@ -14,6 +14,8 @@ public sealed class GameOverController : MonoBehaviour
     [SerializeField] private CanvasGroup overlay;
     [SerializeField] private GameObject menuContent;
     [SerializeField, Min(0f)] private float fadeDuration = 0.4f;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip caughtClip;
 
     public bool IsDefeated { get; private set; }
 
@@ -42,10 +44,12 @@ public sealed class GameOverController : MonoBehaviour
 
     public void Defeat()
     {
-        if (IsDefeated)
+        var screens = FindAnyObjectByType<GameScreenController>();
+        if (IsDefeated || (screens != null && (screens.IsEnding || screens.IsTransitioning || screens.IsPaused)))
             return;
 
         IsDefeated = true;
+        audioSource.PlayOneShot(caughtClip);
         player.LockForDefeat();
         interaction.enabled = false;
         puzzle.Close();
