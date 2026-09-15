@@ -84,6 +84,10 @@ public sealed class SafeRoomDoor : MonoBehaviour
     public Vector3 KeepEnemyOutside(Vector3 destination, float radius)
     {
         Vector3 local = transform.InverseTransformPoint(destination);
+        float width = leaf.size.z * leaf.transform.localScale.z;
+        float margin = radius + clearance;
+        if (local.z < -margin || local.z > width + margin)
+            return destination;
         local.x = Mathf.Max(local.x, radius + clearance);
         return transform.TransformPoint(local);
     }

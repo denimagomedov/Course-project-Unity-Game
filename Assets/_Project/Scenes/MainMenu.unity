@@ -317,7 +317,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PLAY
+  m_text: "\u0418\u0433\u0440\u0430\u0442\u044C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 657728dedd1f0451c8ab9c7efc124a97, type: 2}
   m_sharedMaterial: {fileID: -3592594004825279881, guid: 657728dedd1f0451c8ab9c7efc124a97, type: 2}
@@ -1429,7 +1429,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: QUIT
+  m_text: "\u0412\u044B\u0439\u0442\u0438"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 657728dedd1f0451c8ab9c7efc124a97, type: 2}
   m_sharedMaterial: {fileID: -3592594004825279881, guid: 657728dedd1f0451c8ab9c7efc124a97, type: 2}

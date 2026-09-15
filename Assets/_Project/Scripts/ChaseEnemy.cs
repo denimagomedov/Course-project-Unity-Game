@@ -8,7 +8,7 @@ public sealed class ChaseEnemy : MonoBehaviour
 {
     public enum ChaseState { Inactive, Appear, Chase, PlayerCaught, Stop }
 
-    [SerializeField, Min(0f)] private float movementDelay = 0.75f;
+    [SerializeField, Min(0f)] private float movementDelay;
     [SerializeField, Min(0.1f)] private float speed = 4.8f;
     [SerializeField, Min(0.1f)] private float acceleration = 16f;
     [SerializeField, Min(1f)] private float angularSpeed = 540f;
@@ -64,6 +64,8 @@ public sealed class ChaseEnemy : MonoBehaviour
         chaseStartsAt = Time.time + movementDelay;
         if (arrivalAudio != null)
             arrivalAudio.Play();
+        if (movementDelay <= 0f)
+            StartChase();
     }
 
     private void Update()
@@ -82,18 +84,43 @@ public sealed class ChaseEnemy : MonoBehaviour
             if (Time.time < chaseStartsAt)
                 return;
 
-            agent.speed = speed;
-            agent.acceleration = acceleration;
-            agent.angularSpeed = angularSpeed;
-            agent.enabled = true;
-            contact.enabled = true;
-            State = ChaseState.Chase;
+            StartChase();
         }
 
         if (agent.isOnNavMesh)
             agent.SetDestination(safeDoor != null
                 ? safeDoor.KeepEnemyOutside(player.transform.position, agent.radius)
                 : player.transform.position);
+    }
+
+    private void StartChase()
+    {
+        agent.speed = speed;
+        agent.acceleration = acceleration;
+        agent.angularSpeed = angularSpeed;
+        agent.enabled = true;
+        contact.enabled = true;
+        State = ChaseState.Chase;
+
+        if (!agent.isOnNavMesh)
+            return;
+
+        Vector3 destination = safeDoor != null
+            ? safeDoor.KeepEnemyOutside(player.transform.position, agent.radius)
+            : player.transform.position;
+        var path = new NavMeshPath();
+        if (agent.CalculatePath(destination, path) && path.corners.Length > 1)
+        {
+            Vector3 direction = path.corners[1] - transform.position;
+            direction.y = 0f;
+            if (direction.sqrMagnitude > 0.0001f)
+                transform.rotation = Quaternion.LookRotation(direction);
+            agent.SetPath(path);
+        }
+        else
+        {
+            agent.SetDestination(destination);
+        }
     }
 
     private void LateUpdate()

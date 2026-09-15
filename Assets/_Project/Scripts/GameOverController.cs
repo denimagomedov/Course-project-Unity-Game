@@ -55,7 +55,8 @@ public sealed class GameOverController : MonoBehaviour
         puzzle.Close();
         puzzle.enabled = false;
         foreach (GameObject element in gameplayUI)
-            element.SetActive(false);
+            if (element != null)
+                element.SetActive(false);
 
         EventSystem.current?.SetSelectedGameObject(null);
         overlay.gameObject.SetActive(true);
