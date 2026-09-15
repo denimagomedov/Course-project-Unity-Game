@@ -1,7 +1,6 @@
 using UnityEngine;
 
 [DisallowMultipleComponent]
-[RequireComponent(typeof(BoxCollider))]
 public sealed class TurnstileAccess : MonoBehaviour
 {
     [SerializeField] private GameState gameState;
@@ -13,6 +12,7 @@ public sealed class TurnstileAccess : MonoBehaviour
     private MaterialPropertyBlock indicatorProperties;
 
     public bool IsOpen { get; private set; }
+    public bool CanOpen => !IsOpen && gameState != null && gameState.HasKeycard && gameState.HasBackpack;
 
     private void Awake()
     {
@@ -24,20 +24,9 @@ public sealed class TurnstileAccess : MonoBehaviour
         SetIndicator(new Color(0.85f, 0.15f, 0.08f));
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void TryOpen()
     {
-        TryOpen(other);
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        TryOpen(other);
-    }
-
-    private void TryOpen(Collider other)
-    {
-        if (IsOpen || !gameState.HasKeycard || !gameState.HasBackpack ||
-            other.GetComponentInParent<FirstPersonController>() == null)
+        if (!CanOpen)
             return;
 
         IsOpen = true;

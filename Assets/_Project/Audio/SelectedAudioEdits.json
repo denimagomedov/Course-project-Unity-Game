@@ -194,18 +194,25 @@
   {
     "asset": "ThreatArrival.wav",
     "source": {
-      "selected_file": "EnemyArrival_Monster01_OGA_CC0.ogg",
-      "source_archive": "oga_80_cc0_creature.zip",
-      "original_path": "monster_01.ogg",
-      "source_page": "https://opengameart.org/content/80-cc0-creature-sfx",
-      "license": "CC0",
-      "sha256": "e8bb5c9d3d25172666c60ed302d354144b67e66170bdf039ec88f4b6b0cd879f"
+      "selected_file": "EnemyArrival_MonsterScream1_Pixabay.mp3",
+      "source_archive": "direct download",
+      "original_path": "audio_8d7a681192.mp3",
+      "source_page": "https://pixabay.com/sound-effects/horror-monster-scream-1-45669/",
+      "license": "Pixabay Content License",
+      "sha256": "ede3b9053fe0b1d9acb085b19a2e53353f86a4a79db4420f62882842fbad1d9b"
     },
     "start": 0,
-    "duration": 0.9977708333333334,
-    "peak": 0.58,
-    "rms": 0.051270532998953004,
-    "loop": false
+    "duration": 3.36,
+    "peak": 0.579986572265625,
+    "rms": 0.14295355836570348,
+    "loop": false,
+    "sample_rate": 24000,
+    "channels": 1,
+    "bits_per_sample": 16,
+    "fade_out_seconds": 0.04,
+    "gain": 0.8416935,
+    "processing": "Full decoded source, stereo averaged to mono, uniform attenuation, no attack trim or fade-in; linear fade on final 40 ms.",
+    "output_sha256": "9190a642e1b4e7480a64abc63024776d2fa8438a7e6f46cb42cbb235d81502ef"
   },
   {
     "asset": "BuildingAir.wav",
@@ -318,5 +325,39 @@
     "peak": 0.38,
     "rms": 0.0322937189238832,
     "loop": false
+  },
+  {
+    "asset": "Defeat_DramaticSynthEcho_Pixabay.mp3",
+    "source": {
+      "selected_file": "Defeat_DramaticSynthEcho_Pixabay.mp3",
+      "source_archive": "user download",
+      "original_path": "freesound_community-dramatic-synth-echo-43970.mp3",
+      "source_page": "https://pixabay.com/sound-effects/film-special-effects-dramatic-synth-echo-43970/",
+      "license": "Pixabay Content License",
+      "sha256": "8d2c993c24ca6a67e444346dcaf12db10318e1cf7bf11bc14ccfbc11eeb62451"
+    },
+    "start": 0,
+    "duration": 6.12,
+    "sample_rate": 24000,
+    "channels": 2,
+    "loop": false,
+    "processing": "Byte-identical approved MP3; full duration, no trimming, normalization or effects. Unity imports as PCM, DecompressOnLoad, preloaded."
+  },
+  {
+    "asset": "VictoryFanfare_Universfield_Pixabay.mp3",
+    "source": {
+      "selected_file": "VictoryFanfare_Universfield_Pixabay.mp3",
+      "source_archive": "direct download",
+      "original_path": "audio_3700fd07a3.mp3",
+      "source_page": "https://pixabay.com/sound-effects/musical-victory-fanfare-152480/",
+      "license": "Pixabay Content License",
+      "sha256": "3c1c005c2c8140a361b22ac5fa7ee5ec9f597bf44c330afa2bd9ca3433449ca5"
+    },
+    "start": 0,
+    "duration": 3.813877551020408,
+    "sample_rate": 44100,
+    "channels": 2,
+    "loop": false,
+    "processing": "Byte-identical approved MP3; full duration, no trimming, normalization or effects. Unity imports as PCM, DecompressOnLoad, preloaded."
   }
 ]

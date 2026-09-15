@@ -14,8 +14,7 @@ public sealed class GameOverController : MonoBehaviour
     [SerializeField] private CanvasGroup overlay;
     [SerializeField] private GameObject menuContent;
     [SerializeField, Min(0f)] private float fadeDuration = 0.4f;
-    [SerializeField] private AudioSource audioSource;
-    [SerializeField] private AudioClip caughtClip;
+    [SerializeField] private AudioSource defeatAudio;
 
     public bool IsDefeated { get; private set; }
 
@@ -49,7 +48,7 @@ public sealed class GameOverController : MonoBehaviour
             return;
 
         IsDefeated = true;
-        audioSource.PlayOneShot(caughtClip);
+        defeatAudio?.Play();
         player.LockForDefeat();
         interaction.enabled = false;
         puzzle.Close();

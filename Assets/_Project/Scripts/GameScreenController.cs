@@ -24,6 +24,7 @@ public sealed class GameScreenController : MonoBehaviour
     [SerializeField] private Button resumeButton;
     [SerializeField] private Button pauseMenuButton;
     [SerializeField] private Button quitButton;
+    [SerializeField] private AudioSource victoryAudio;
 
     public bool IsPaused { get; private set; }
     public bool IsEnding { get; private set; }
@@ -137,6 +138,7 @@ public sealed class GameScreenController : MonoBehaviour
     {
         if (IsEnding || IsTransitioning || IsPaused || gameOver.IsDefeated) return;
         IsEnding = true;
+        victoryAudio?.Play();
         player.SetScreenLocked(true);
         puzzle.Close();
         gameplayUI.SetActive(false);
@@ -149,6 +151,8 @@ public sealed class GameScreenController : MonoBehaviour
         IsTransitioning = true;
         yield return Fade(1f);
         ending.SetActive(true);
+        var ambience = FindAnyObjectByType<RouteAmbience>();
+        if (ambience != null) ambience.enabled = false;
         endingMenuButton.gameObject.SetActive(false);
         fade.alpha = 0f;
         fade.blocksRaycasts = false;
